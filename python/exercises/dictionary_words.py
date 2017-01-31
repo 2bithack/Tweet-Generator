@@ -4,15 +4,17 @@
 import random
 import sys
 
-with open("/usr/share/dict/words", 'r') as f:
-    corpus = f.read().splitlines()
-f.close()
+def open_file():
+    with open("/usr/share/dict/words", 'r') as f:
+        corpus = f.read().splitlines()
+        f.close()
+        return corpus
+    # print(corpus)
 
-arr = corpus
 def random_words():
+    arr = open_file()
     arr2 = []
     arr3 = arr
-    #print arr3
     for i in range(5):
         rand_index = random.randint(0, len(arr3) - 1)
         arr2.append(arr3[rand_index])
