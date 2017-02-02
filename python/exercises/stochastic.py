@@ -1,5 +1,5 @@
 import sys
-
+import random
 def open_file():
     with open("/Users/kn0t/Documents/MakeSchool/frontEndWebClass/front-end-React/webpack-starter/node_modules/stream-http/test/server/static/basic.txt", 'r') as f:
         words = f.read().split()
@@ -17,13 +17,12 @@ def histogram():
     return dictionary
 print(histogram())
 
-def unique_words():
-    return len(histogram())
-print('Unique word count: ' + str(unique_words()))
-
-def frequency():
-    dictionary = histogram()
-    inputWord = sys.argv[1]
-    if inputWord in dictionary:
-        return dictionary[inputWord]
-print('That word is found ' + str(frequency()) + ' time(s).')
+def random_word():
+    arr = list(histogram())
+    arr2 = []
+    for i in range(len(arr)):
+        rand_index = random.randint(0, len(arr) - 1)
+        arr2.append(arr[rand_index])
+        arr.remove(arr[rand_index])
+    return arr[rand_index]
+print('Random word: ' + random_word())
