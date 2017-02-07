@@ -8,6 +8,7 @@ def open_file():
     return words
 
 def histogram():
+    #could use re
     unwanted_chars = """.,-_?""'<>}{)("""
     dictionary = {}
     for raw_word in open_file():
@@ -19,13 +20,14 @@ def histogram():
 
 def random_word():
     arr = histogram().items()
-    totalTokens = sum(histogram().values())
-    print('Total words:' + str(totalTokens))
     arr2 = []
-    print(arr)
-    for i in range(totalTokens):
-        rand_index = random.randint(0, totalTokens - 1)
-        arr2.append(arr[rand_index])
-        arr.remove(arr[rand_index])
+    #the first for loop iterates through the entire array
+    for i in range(len(arr)-1):
+        #this for loop iterates the number of the token count from the dictionary(second tuple value)
+        for j in range(arr[i][1]):
+            #appending a new array with only the key of the tuple list
+            arr2.append(arr[i][0])
+    rand_index = random.randint(0, len(arr2) - 1)
     return arr2[rand_index]
-print('Random word: ' + str(random_word()))
+
+print('Random word: ' + random_word())
