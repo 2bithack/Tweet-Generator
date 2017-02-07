@@ -13,8 +13,10 @@ def histogram():
         word = raw_word.strip(unwanted_chars).lower()
         if word not in dictionary:
             dictionary[word] = 0
-            dictionary[word] += 1
+        dictionary[word] += 1
     return dictionary
+
+
 print(histogram())
 
 def unique_words():
