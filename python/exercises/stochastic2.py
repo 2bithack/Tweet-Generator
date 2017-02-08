@@ -19,15 +19,10 @@ def histogram():
     return dictionary
 
 def random_word():
-    arr = histogram().items()
-    arr2 = []
-    #the first for loop iterates through the entire array
-    for i in range(len(arr)-1):
-        #this for loop iterates the number of the token count from the dictionary(second tuple value)
-        for j in range(arr[i][1]):
-            #appending a new array with only the key of the tuple list
-            arr2.append(arr[i][0])
-    rand_index = random.randint(0, len(arr2) - 1)
-    return arr2[rand_index]
-
+    rand_index = random.randint(1, sum(histogram().values()))
+    count = 0
+    for key in histogram():
+        count += histogram()[key]
+        if count >= rand_index:
+            return key
 print('Random word: ' + random_word())
