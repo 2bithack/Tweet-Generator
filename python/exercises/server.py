@@ -1,5 +1,7 @@
 import sys
 import random
+from flask import Flask
+app = Flask(__name__)
 
 def open_file():
     with open("./basic.txt", 'r') as f:
