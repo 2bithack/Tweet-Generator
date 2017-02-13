@@ -8,4 +8,4 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Hello, World! Your random word of the day is' + stochastic2
+    return 'Hello, World! Your random word of the day is' + str(stochastic2)
