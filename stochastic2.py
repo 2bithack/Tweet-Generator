@@ -18,7 +18,6 @@ def histogram():
         dictionary[word] += 1
     return dictionary
 
-@app.route('/')
 def random_word():
     rand_index = random.randint(1, sum(histogram().values()))
     count = 0

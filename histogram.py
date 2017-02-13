@@ -15,8 +15,6 @@ def histogram():
             dictionary[word] = 0
         dictionary[word] += 1
     return dictionary
-
-
 print(histogram())
 
 def unique_words():
